@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'font_1';
+  src: local('font_1'), url(./fonts/font_1.woff) format('woff');
+}
+
+body {
+  margin: 0;
+  font-family: 'Muli';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.highcharts-credits {
+  display: none;
+}
