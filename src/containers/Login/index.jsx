@@ -164,7 +164,7 @@ const Login = () => {
               <div className={classes.divider} />
             </Box>
 
-            <Grid container spacing={3}>
+            {/* <Grid container spacing={3}>
               <Grid item xs={6}>
                 <GoogleLogin
                   clientId="802105279409-3f4hr8psra01jd28d9rhuupgp64658k4.apps.googleusercontent.com"
@@ -224,7 +224,7 @@ const Login = () => {
                   )}
                 />
               </Grid>
-            </Grid>
+            </Grid> */}
           </form>
         </div>
       </Grid>

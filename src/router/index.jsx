@@ -12,6 +12,7 @@ import actions from '../redux/actions';
 export default () => {
   const dispatch = useDispatch();
   const { accessToken, verifying } = useSelector((state) => state.auth);
+  //console.log({ verifying });
   const [isFirstTime, setIsFirstTime] = useState(true);
   useEffect(() => {
     if (!accessToken) {
@@ -22,7 +23,7 @@ export default () => {
     }
     setIsFirstTime(false);
   }, []);
-
+  //console.log({ isFirstTime });
   if (isFirstTime || verifying) {
     return <CircularProgress />;
   }
