@@ -1,6 +1,12 @@
 # Package-lock.json
 package-lock.json
 
+# gitignore
+.gitignore
+
+# docker
+docker/
+
 # Build
 build/
 
