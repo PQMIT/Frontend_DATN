@@ -7,7 +7,7 @@ import TabDetail from './TabDetail';
 import useStyles from './index.style';
 import apis from '../../apis';
 import LoadingPage from '../../components/LoadingPage';
-
+import { MathComponent } from 'mathjax-react';
 const menus = [
   { id: 0, heading: 'Tất cả cuộc thi' },
   { id: 1, heading: 'Đã tham gia' },
@@ -101,6 +101,7 @@ const Home = () => {
 
   return (
     <>
+      <MathComponent tex={String.raw`\int_0^1 x^2\ dx`} />
       <Box mb={1}>
         <Typography variant="h6" gutterBottom>
           Danh sách cuộc thi

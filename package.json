@@ -1,12 +1,15 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
+  "homepage": "https://pqmit.github.io/multichoice-crm",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "cross-env NODE_ENV=production node server"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "deployx": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
@@ -25,6 +28,7 @@
     "highcharts": "^9.1.0",
     "i18next": "^19.6.3",
     "i18next-browser-languagedetector": "^5.0.0",
+    "mathjax-react": "^2.0.1",
     "moment": "^2.29.1",
     "mongoid-js": "^1.3.0",
     "notistack": "^1.0.3",
@@ -34,6 +38,7 @@
     "react-dom": "^16.13.1",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.2.2",
+    "react-highcharts": "^16.1.0",
     "react-i18next": "^11.7.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
@@ -41,8 +46,7 @@
     "react-swipeable-views": "^0.13.9",
     "read-excel-file": "^5.1.0",
     "redux": "^4.0.5",
-    "redux-saga": "^1.1.3",
-    "react-highcharts": "^16.1.0"
+    "redux-saga": "^1.1.3"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
@@ -55,6 +59,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "gh-pages": "^6.1.1",
     "prettier": "^2.0.5",
     "react-app-rewired": "^2.1.8",
     "react-hot-loader": "^4.12.21",

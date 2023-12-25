@@ -8,6 +8,7 @@ import ExamInformation from './ExamInformation';
 import ExamRank from './ExamRank';
 import ExamHistory from './ExamHistory';
 import apis from '../../apis';
+import PrepareExam from './ExamInformation';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -41,8 +42,9 @@ const ExamDetail = () => {
   }, []);
   return (
     <>
+      {/* <PrepareExam examId={id} /> */}
       <Grid container spacing={3}>
-        {!role && (
+        {role && (
           <>
             <Grid item xs={4}>
               <Paper className={classes.paper}>

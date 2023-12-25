@@ -202,6 +202,7 @@ const Question = () => {
                   isCorrect: parseInt(row[row.length - 1]) === index + 1,
                 })),
               };
+              //console.log('123');
               await apis.question.createQuestion({
                 ...questionData,
                 groupQuestion: groupQuestionId,
