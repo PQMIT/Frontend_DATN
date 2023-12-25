@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/multichoice-crm/static/css/main.07d30364.chunk.css",
-    "main.js": "/multichoice-crm/static/js/main.54731ef7.chunk.js",
-    "main.js.map": "/multichoice-crm/static/js/main.54731ef7.chunk.js.map",
-    "runtime-main.js": "/multichoice-crm/static/js/runtime-main.a533becc.js",
-    "runtime-main.js.map": "/multichoice-crm/static/js/runtime-main.a533becc.js.map",
-    "static/js/2.f4ed4392.chunk.js": "/multichoice-crm/static/js/2.f4ed4392.chunk.js",
-    "static/js/2.f4ed4392.chunk.js.map": "/multichoice-crm/static/js/2.f4ed4392.chunk.js.map",
-    "index.html": "/multichoice-crm/index.html",
-    "precache-manifest.0c864d7dc4e85f393ac6e6da95b6c7b8.js": "/multichoice-crm/precache-manifest.0c864d7dc4e85f393ac6e6da95b6c7b8.js",
-    "service-worker.js": "/multichoice-crm/service-worker.js",
-    "static/css/main.07d30364.chunk.css.map": "/multichoice-crm/static/css/main.07d30364.chunk.css.map",
-    "static/js/2.f4ed4392.chunk.js.LICENSE.txt": "/multichoice-crm/static/js/2.f4ed4392.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/multichoice-crm/static/media/font_1.0d7c728b.woff"
+    "main.css": "/Multichoice/static/css/main.e6776996.chunk.css",
+    "main.js": "/Multichoice/static/js/main.d4b388f4.chunk.js",
+    "main.js.map": "/Multichoice/static/js/main.d4b388f4.chunk.js.map",
+    "runtime-main.js": "/Multichoice/static/js/runtime-main.c6abef55.js",
+    "runtime-main.js.map": "/Multichoice/static/js/runtime-main.c6abef55.js.map",
+    "static/js/2.f4ed4392.chunk.js": "/Multichoice/static/js/2.f4ed4392.chunk.js",
+    "static/js/2.f4ed4392.chunk.js.map": "/Multichoice/static/js/2.f4ed4392.chunk.js.map",
+    "index.html": "/Multichoice/index.html",
+    "precache-manifest.cad0d1f340a0b2949f2925e7eec32ce0.js": "/Multichoice/precache-manifest.cad0d1f340a0b2949f2925e7eec32ce0.js",
+    "service-worker.js": "/Multichoice/service-worker.js",
+    "static/css/main.e6776996.chunk.css.map": "/Multichoice/static/css/main.e6776996.chunk.css.map",
+    "static/js/2.f4ed4392.chunk.js.LICENSE.txt": "/Multichoice/static/js/2.f4ed4392.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Multichoice/static/media/font_1.0d7c728b.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.a533becc.js",
+    "static/js/runtime-main.c6abef55.js",
     "static/js/2.f4ed4392.chunk.js",
-    "static/css/main.07d30364.chunk.css",
-    "static/js/main.54731ef7.chunk.js"
+    "static/css/main.e6776996.chunk.css",
+    "static/js/main.d4b388f4.chunk.js"
   ]
 }
