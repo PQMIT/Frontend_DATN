@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
-  "homepage": "https://pqmit.github.io/multichoice-crm",
+  "homepage": "https://pqmit.github.io/Multichoice",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-scripts build",
