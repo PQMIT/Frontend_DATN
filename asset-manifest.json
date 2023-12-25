@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/multichoice-crm/static/css/main.07d30364.chunk.css",
+    "main.js": "/multichoice-crm/static/js/main.54731ef7.chunk.js",
+    "main.js.map": "/multichoice-crm/static/js/main.54731ef7.chunk.js.map",
+    "runtime-main.js": "/multichoice-crm/static/js/runtime-main.a533becc.js",
+    "runtime-main.js.map": "/multichoice-crm/static/js/runtime-main.a533becc.js.map",
+    "static/js/2.f4ed4392.chunk.js": "/multichoice-crm/static/js/2.f4ed4392.chunk.js",
+    "static/js/2.f4ed4392.chunk.js.map": "/multichoice-crm/static/js/2.f4ed4392.chunk.js.map",
+    "index.html": "/multichoice-crm/index.html",
+    "precache-manifest.0c864d7dc4e85f393ac6e6da95b6c7b8.js": "/multichoice-crm/precache-manifest.0c864d7dc4e85f393ac6e6da95b6c7b8.js",
+    "service-worker.js": "/multichoice-crm/service-worker.js",
+    "static/css/main.07d30364.chunk.css.map": "/multichoice-crm/static/css/main.07d30364.chunk.css.map",
+    "static/js/2.f4ed4392.chunk.js.LICENSE.txt": "/multichoice-crm/static/js/2.f4ed4392.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/multichoice-crm/static/media/font_1.0d7c728b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a533becc.js",
+    "static/js/2.f4ed4392.chunk.js",
+    "static/css/main.07d30364.chunk.css",
+    "static/js/main.54731ef7.chunk.js"
+  ]
+}
