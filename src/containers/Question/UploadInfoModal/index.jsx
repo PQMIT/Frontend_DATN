@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { Modal, Box, Typography, Button, Divider } from '@material-ui/core';
+import { Modal, Box, Typography, Divider } from '@material-ui/core';
 import { Close as CloseIcon } from '@material-ui/icons';
 import useStyles from './index.style';
 

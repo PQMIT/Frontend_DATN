@@ -5,10 +5,10 @@ import React, { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';
 import { Typography, Box, TextField, Button } from '@material-ui/core';
-import {
+/* import {
   Description as DescriptionIcon,
   HourglassEmpty as HourglassEmptyIcon,
-} from '@material-ui/icons';
+} from '@material-ui/icons'; */
 import useStyles from './index.style';
 import apis from '../../../apis';
 import constants from '../../../constants';

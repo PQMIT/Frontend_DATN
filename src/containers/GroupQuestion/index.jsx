@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import {
@@ -31,7 +31,7 @@ import LoadingPage from '../../components/LoadingPage';
 let timeOutId = null;
 const GroupQuestion = () => {
   const classes = useStyles();
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);

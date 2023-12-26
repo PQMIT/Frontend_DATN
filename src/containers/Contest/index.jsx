@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import { withStyles } from '@material-ui/core/styles';
@@ -35,7 +35,7 @@ import useStyles from './index.style';
 import apis from '../../apis';
 
 const Contest = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const classes = useStyles();
   const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();

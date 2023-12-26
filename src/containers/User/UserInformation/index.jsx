@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { useSnackbar } from 'notistack';
 import {
   TextField,
@@ -19,7 +19,7 @@ import useStyles from './index.style';
 import apis from '../../../apis';
 
 const User = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const classes = useStyles();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
