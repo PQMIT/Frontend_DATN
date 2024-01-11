@@ -46,7 +46,7 @@ const ExamDetail = () => {
       <Grid container spacing={3}>
         {role && (
           <>
-            <Grid item xs={4}>
+            <Grid item xs={6}>
               <Paper className={classes.paper}>
                 <Box>
                   <Typography variant="h6" gutterBottom>
@@ -57,7 +57,7 @@ const ExamDetail = () => {
                 </Box>
               </Paper>
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={6}>
               <Paper
                 className={classes.paper}
                 style={{ borderLeft: '10px solid #f16a73' }}

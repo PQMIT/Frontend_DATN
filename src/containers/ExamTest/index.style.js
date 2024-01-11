@@ -37,6 +37,12 @@ export default makeStyles((theme) => ({
     position: 'fixed',
     padding: theme.spacing(8),
   },
+  prevent_copy_paste: {
+    userSelect: 'none' /* Ngăn chặn chọn text */,
+    '-moz-user-select': 'none' /* Firefox */,
+    '-webkit-user-select': 'none' /* Chrome, Safari, Opera */,
+    '-ms-user-select': 'none' /* Internet Explorer/Edge */,
+  },
   answerRow: {
     cursor: 'pointer',
     '&:hover': {

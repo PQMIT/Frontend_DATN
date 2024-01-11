@@ -98,10 +98,11 @@ const Home = () => {
   if (isLoading) {
     return <LoadingPage />;
   }
+  const math = String.raw`x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}`;
 
   return (
     <>
-      <MathComponent tex={String.raw`\int_0^1 x^2\ dx`} />
+      {/* {<MathComponent tex={String.raw`\int_0^1 x^2\ dx`} />} */}
       <Box mb={1}>
         <Typography variant="h6" gutterBottom>
           Danh sách cuộc thi

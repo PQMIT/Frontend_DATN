@@ -144,6 +144,24 @@ const PrepareExam = ({ examId }) => {
             Thời gian: {contest && contest.examTime}(m)
           </Typography>
         </Box>
+        <Box display="flex">
+          <Typography variant="subtitle1" gutterBottom>
+            <p>
+              <strong class="">Nội quy</strong>
+            </p>
+            <span>
+              - Không nhờ người khác thi hộ. <br />- Không sao chép câu trả lời
+              từ tài liệu trên internet.
+              <p>
+                <strong class="text-danger" style={{ color: '#dc3545' }}>
+                  - Không thoát khỏi màn hình làm bài thi. Nếu bạn thoát khỏi
+                  màn hình bài thi, hệ thống tự động nộp bài và ghi nhận kết quả
+                  trước đó
+                </strong>
+              </p>
+            </span>
+          </Typography>
+        </Box>
 
         {renderByStatus()}
       </Box>

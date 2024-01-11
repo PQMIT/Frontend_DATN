@@ -4,7 +4,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useParams, useHistory, useLocation } from 'react-router-dom';
-import { Paper, Typography, Box, Grid, Button } from '@material-ui/core';
+import {
+  Paper,
+  Typography,
+  Box,
+  Grid,
+  Button,
+  Snackbar,
+} from '@material-ui/core';
 import {
   Fullscreen as FullscreenIcon,
   Send as SendIcon,
@@ -16,12 +23,17 @@ import apis from '../../apis';
 import LoadingPage from '../../components/LoadingPage';
 import { renderClockTime } from '../../utils/date';
 import useUnsavedChangesWarning from './useUnsavedChangesWarning';
-
+import ModalImage from '../Image';
+import { isImageUrlCheck } from '../../utils/string';
+import MuiAlert from '@material-ui/lab/Alert';
 let interval = null;
 
 const alphabet = 'A B C D E F G H I K L M N O P Q R S T V X Y Z';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
+}
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 const ExamTest = () => {
@@ -40,6 +52,18 @@ const ExamTest = () => {
   const [timeDoExam, setTimeDoExam] = useState(0);
   const [isMarking, setIsMarking] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const handleClick = () => {
+    setOpenAlert(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenAlert(false);
+  };
 
   const handleChangeAnswer = (value) => {
     setAnswers({
@@ -145,14 +169,52 @@ const ExamTest = () => {
       </Box>
     );
   }
+  // Xử lí dạng ảnh {{image_url}}}
+  const textString = questionSelected.data.description;
+
+  const imageUrlRegex = /\{\{(.*?)\}\}/g;
+  const replacedString = textString.replace(
+    imageUrlRegex,
+    (match, imageUrl) => {
+      if (isImageUrlCheck(imageUrl)) {
+        return `<img src="${imageUrl}" alt="Hình ảnh test" style="width: auto; height: 50px;"  />`;
+      } else {
+        return imageUrl;
+      }
+    },
+  );
+
+  // Chống copy paste
+  const handleCopyPaste = (e) => {
+    e.preventDefault();
+    console.log('Copy-paste is not allowed!');
+    setOpenAlert(true);
+  };
+
   return (
-    <div className={isFullscreen && classes.fullscreen}>
+    <div
+      className={`${isFullscreen ? classes.fullscreen : ''} prevent_copy_paste`}
+      onCopy={handleCopyPaste}
+      onPaste={handleCopyPaste}
+    >
       {/* <Prompt
         when={!isMarking}
         message={(location) =>
           `Are you sure you want to go to ${location.pathname}`
         }
+        
       /> */}
+      {/* Snackbar */}
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={openAlert}
+        autoHideDuration={3000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="warning">
+          Cảnh bảo !!! Không được phép Copy-paste
+        </Alert>
+      </Snackbar>
       <Box
         display="flex"
         justifyContent="space-between"
@@ -211,16 +273,22 @@ const ExamTest = () => {
                 <Typography gutterBottom style={{ textAlign: 'center' }}>
                   Câu số {questionSelected && questionSelected.position + 1}
                 </Typography>
+                {/* <ModalImage /> */}
                 <Typography gutterBottom style={{ color: '#ccc' }}>
                   {questionSelected &&
                     questionSelected.data &&
                     questionSelected.data.title}
                 </Typography>
-                <Typography variant="h6" gutterBottom>
+                <div variant="h6" gutterBottom>
+                  {questionSelected && questionSelected.data && (
+                    <div dangerouslySetInnerHTML={{ __html: replacedString }} />
+                  )}
+                </div>
+                {/*  <Typography variant="h6" gutterBottom>
                   {questionSelected &&
                     questionSelected.data &&
                     questionSelected.data.description}
-                </Typography>
+                </Typography> */}
               </Box>
               <Box>
                 {questionSelected &&
@@ -259,6 +327,7 @@ const ExamTest = () => {
               <Box className={classes.listQuestionBox}>
                 {contest &&
                   contest.questions.map((el, index) => (
+                    // console.log(el.description),
                     <Button
                       key={index}
                       className={classes.questionSquare}

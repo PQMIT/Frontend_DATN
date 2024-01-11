@@ -12,7 +12,8 @@ function changeAlias(alias) {
 }
 
 function validateEmail(email) {
-  const re = /^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/;
+  const re =
+    /^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/;
   return re.test(String(email).toLowerCase());
 }
 
@@ -21,4 +22,10 @@ function validatePassword(password) {
   return re.test(password);
 }
 
-export { changeAlias, validateEmail, validatePassword };
+function isImageUrlCheck(str) {
+  // Biểu thức chính quy kiểm tra định dạng đường link ảnh
+  const imageUrlRegex = /\.(jpeg|jpg|gif|png|bmp|svg)$/i;
+  return imageUrlRegex.test(str);
+}
+
+export { changeAlias, validateEmail, validatePassword, isImageUrlCheck };

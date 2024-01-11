@@ -24,7 +24,7 @@ const ExamHistory = ({ examId }) => {
   const [pagination, setPagination] = useState({
     count: 100,
     page: 0,
-    rowsPerPage: 3,
+    rowsPerPage: 6,
   });
 
   const handleChangePage = (event, newPage) => {
