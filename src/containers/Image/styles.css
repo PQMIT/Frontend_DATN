@@ -1,0 +1,13 @@
+.image-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%; /* Chiều cao 100% của viewport */
+  /* width: 400px; do rong 100% của viewport */
+}
+
+.cover-image {
+ max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Hoặc "cover" tùy thuộc vào yêu cầu của bạn */
+}
