@@ -1,6 +1,7 @@
 /* eslint-disable radix */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-nested-ternary */
+// eslint-disable-next-line
 import React, { useEffect, useState } from 'react';
 // import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';

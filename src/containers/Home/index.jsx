@@ -1,4 +1,5 @@
 /* eslint-disable no-useless-return */
+// eslint-disable-next-line
 import React, { useEffect, useState } from 'react';
 import { useSnackbar } from 'notistack';
 import { useTranslation } from 'react-i18next';

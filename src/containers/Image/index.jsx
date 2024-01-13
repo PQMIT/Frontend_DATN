@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { Modal } from '@material-ui/core';
 import React, { useState } from 'react';
 import './styles.css';

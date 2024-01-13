@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-useless-return */
 /* eslint-disable consistent-return */
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack';
 import { useHistory } from 'react-router-dom';

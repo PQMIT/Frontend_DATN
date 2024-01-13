@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable react/no-array-index-key */
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { useSnackbar } from 'notistack';
 import {

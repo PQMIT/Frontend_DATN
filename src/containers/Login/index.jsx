@@ -2,6 +2,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-useless-return */
 /* eslint-disable react/no-unescaped-entities */
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSnackbar } from 'notistack';
@@ -151,7 +152,7 @@ const Login = () => {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link to="register" variant="body2">
                   Tạo tài khoản
                 </Link>
               </Grid>

@@ -1,4 +1,5 @@
 /* eslint-disable react/jsx-wrap-multilines */
+// eslint-disable-next-line
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
