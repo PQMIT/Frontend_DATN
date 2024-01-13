@@ -152,7 +152,7 @@ const Login = () => {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link to="register" variant="body2">
+                <Link href="/register" variant="body2">
                   Tạo tài khoản
                 </Link>
               </Grid>
