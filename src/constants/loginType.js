@@ -1,0 +1,5 @@
+export default {
+  LOGIN: 'LOGIN',
+  LOGIN_GOOGLE: 'LOGIN_GOOGLE',
+  LOGIN_FACEBOOK: 'LOGIN_FACEBOOK',
+};
