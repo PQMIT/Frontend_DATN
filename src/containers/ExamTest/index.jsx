@@ -28,7 +28,6 @@ import { isImageUrlCheck } from '../../utils/string';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
 let interval = null;
-import html2canvass from 'html2canvas';
 
 const alphabet = 'A B C D E F G H I K L M N O P Q R S T V X Y Z';
 function useQuery() {
@@ -272,9 +271,9 @@ const ExamTest = () => {
 
   const captureScreenshot = async () => {
     try {
-      const canvas = await html2canvas(document.body);
+      /* const canvas = await html2canvas(document.body);
       // Xử lý ảnh chụp được từ màn hình
-      console.log(canvas.toDataURL('image/png'));
+      console.log(canvas.toDataURL('image/png')); */
     } catch (error) {
       alert('Lỗi khi chụp màn hình:', error);
     }

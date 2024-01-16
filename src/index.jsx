@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 import './languages';
 import Router from './router';
 import store from './redux/store';
-
+import html2canvass from 'html2canvas';
 window.Highcharts = Highcharts;
 
 ReactDOM.render(

@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../../redux/actions';
 import useStyles from './index.style';
 import apis from '../../../apis';
-import html2canvas from 'html2canvas';
+import html2scanvas from 'html2canvas';
 
 const User = () => {
   // const { t } = useTranslation();

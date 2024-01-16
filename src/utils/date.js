@@ -71,7 +71,7 @@ export function checkDate(el) {
   }
   return `Time remain: ${moment(startTime).fromNow()}`;
 }
-export function formatTimeFull(el) {
+/* export function formatTimeFull(el) {
   const formattedDate = moment(row.createdAt).format('DD/MM/YYYY h:mm:ss a');
   console.log(formattedDate);
-}
+} */
