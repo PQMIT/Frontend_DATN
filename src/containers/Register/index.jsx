@@ -150,7 +150,7 @@ const Register = () => {
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link to="/login" variant="body2">
+                <Link href="/login" variant="body2">
                   Bạn đã có tài khoản?
                 </Link>
               </Grid>

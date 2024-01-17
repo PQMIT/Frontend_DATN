@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
-  "homepage": "https://pqmit.github.io",
+  "homepage": "http://54.85.42.221:3000",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-scripts build",
