@@ -48,7 +48,8 @@
     "react-swipeable-views": "^0.13.9",
     "read-excel-file": "^5.1.0",
     "redux": "^4.0.5",
-    "redux-saga": "^1.1.3"
+    "redux-saga": "^1.1.3",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
