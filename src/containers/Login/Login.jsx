@@ -24,16 +24,14 @@ import actions from '../../redux/actions';
 import useStyles from './index.style';
 import loginType from '../../constants/loginType';
 import { validateEmail } from '../../utils/string';
-import Register2 from '../Register/register';
-import Login2 from './Login';
-const Login = () => {
+
+const Login2 = ({ isLogin, handleLoginOrRegister }) => {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [isLogin, setisLogin] = useState(true);
 
   const dispatch = useDispatch();
   const { isLoggingIn, message } = useSelector((state) => state.auth);
@@ -87,103 +85,85 @@ const Login = () => {
       handleLogin();
     }
   };
-  const handleLoginOrRegister = () => {
-    setisLogin(!isLogin);
-  };
-  // console.log(isLogin);
-  return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      <Grid item xs={false} sm={8} md={8} className={classes.image} />
-      <Grid item xs={12} sm={4} nd={4}>
-        {isLogin ? (
-          <Login2
-            isLogin={isLogin}
-            handleLoginOrRegister={handleLoginOrRegister}
-          />
-        ) : (
-          <Register2
-            isLogin={isLogin}
-            handleLoginOrRegister={handleLoginOrRegister}
-          />
-        )}
-      </Grid>
-      {/* <Grid item xs={12} sm={4} md={4} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Đăng nhập
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              onKeyPress={onKeyPress}
-              value={email}
-              onChange={(e) => {
-                setEmailError('');
-                setEmail(e.target.value);
-              }}
-              error={emailError}
-              helperText={emailError}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Mật khẩu"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              onKeyPress={onKeyPress}
-              value={password}
-              onChange={(e) => {
-                setPasswordError('');
-                setPassword(e.target.value);
-              }}
-              error={passwordError}
-              helperText={passwordError}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={(e) => {
-                e.preventDefault();
-                handleLogin();
-              }}
-            >
-              Đăng nhập
-            </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/register" variant="body2">
-                  Tạo tài khoản
-                </Link>
-              </Grid>
-            </Grid>
-            <Box display="flex" mt={1} alignItems="center">
-              <div className={classes.divider} />
-              <Typography gutterBottom align="center" variant="subtitle1">
-                Hoặc
-              </Typography>
-              <div className={classes.divider} />
-            </Box>
 
-            <Grid container spacing={3}>
+  return (
+    <Grid item xs={12} sm={12} md={12} component={Paper} elevation={6} square>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Đăng nhập
+        </Typography>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+            onKeyPress={onKeyPress}
+            value={email}
+            onChange={(e) => {
+              setEmailError('');
+              setEmail(e.target.value);
+            }}
+            error={emailError}
+            helperText={emailError}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Mật khẩu"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onKeyPress={onKeyPress}
+            value={password}
+            onChange={(e) => {
+              setPasswordError('');
+              setPassword(e.target.value);
+            }}
+            error={passwordError}
+            helperText={passwordError}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={(e) => {
+              e.preventDefault();
+              handleLogin();
+            }}
+          >
+            Đăng nhập
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item>
+              {/* <Link href="/register" variant="body2">
+                Tạo tài khoản
+              </Link> */}
+              <Button onClick={handleLoginOrRegister}>Tạo tài khoản</Button>
+            </Grid>
+          </Grid>
+          <Box display="flex" mt={1} alignItems="center">
+            <div className={classes.divider} />
+            <Typography gutterBottom align="center" variant="subtitle1">
+              Hoặc
+            </Typography>
+            <div className={classes.divider} />
+          </Box>
+
+          {/* <Grid container spacing={3}>
               <Grid item xs={6}>
                 <GoogleLogin
                   clientId="802105279409-3f4hr8psra01jd28d9rhuupgp64658k4.apps.googleusercontent.com"
@@ -243,12 +223,11 @@ const Login = () => {
                   )}
                 />
               </Grid>
-            </Grid>
-          </form>
-        </div>
-      </Grid> */}
+            </Grid> */}
+        </form>
+      </div>
     </Grid>
   );
 };
 
-export default Login;
+export default Login2;
