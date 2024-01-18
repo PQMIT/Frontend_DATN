@@ -24,6 +24,8 @@ import actions from '../../redux/actions';
 import useStyles from './index.style';
 import loginType from '../../constants/loginType';
 import { validateEmail } from '../../utils/string';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { googleLogout } from '@react-oauth/google';
 
 const Login2 = ({ isLogin, handleLoginOrRegister }) => {
   const classes = useStyles();
@@ -85,6 +87,7 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
       handleLogin();
     }
   };
+  googleLogout();
 
   return (
     <Grid item xs={12} sm={12} md={12} component={Paper} elevation={6} square>
@@ -163,67 +166,81 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
             <div className={classes.divider} />
           </Box>
 
-          {/* <Grid container spacing={3}>
-              <Grid item xs={6}>
-                <GoogleLogin
-                  clientId="802105279409-3f4hr8psra01jd28d9rhuupgp64658k4.apps.googleusercontent.com"
-                  render={(renderProps) => (
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      color="primary"
-                      className={classes.submit}
-                      startIcon={
-                        <Avatar
-                          style={{
-                            height: '20px',
-                            width: '20px',
-                          }}
-                          variant="square"
-                          src="https://res.cloudinary.com/dfbongzx0/image/upload/v1621771943/m33izryay4mzslavxmyk.png"
-                        />
-                      }
-                      onClick={renderProps.onClick}
-                    >
-                      Google
-                    </Button>
-                  )}
-                  buttonText="Login"
-                  onSuccess={handleLoginSuccessGoogle}
-                  onFailure={handleLoginFailureGoogle}
-                  cookiePolicy="single_host_origin"
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <FacebookLogin
-                  appId="136872808369148"
-                  // eslint-disable-next-line react/jsx-boolean-value
-                  autoLoad={false}
-                  callback={handleLoginFacebook}
-                  render={(renderProps) => (
-                    <Button
-                      fullWidth
-                      variant="outlined"
-                      color="primary"
-                      className={classes.submit}
-                      startIcon={
-                        <Avatar
-                          style={{
-                            height: '20px',
-                            width: '20px',
-                          }}
-                          variant="square"
-                          src="https://res.cloudinary.com/dfbongzx0/image/upload/v1621771959/idn7xi1tw5blhrj8zoxk.png"
-                        />
-                      }
-                      onClick={renderProps.onClick}
-                    >
-                      Facebook
-                    </Button>
-                  )}
-                />
-              </Grid>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              {/*  <GoogleLogin
+                clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com"
+                render={(renderProps) => (
+                  <Button
+                    fullWidth
+                    variant="outlined"
+                    color="primary"
+                    className={classes.submit}
+                    startIcon={
+                      <Avatar
+                        style={{
+                          height: '20px',
+                          width: '20px',
+                        }}
+                        variant="square"
+                        src="https://res.cloudinary.com/dfbongzx0/image/upload/v1621771943/m33izryay4mzslavxmyk.png"
+                      />
+                    }
+                    onClick={renderProps.onClick}
+                  >
+                    Google
+                  </Button>
+                )}
+                buttonText="Login"
+                onSuccess={handleLoginSuccessGoogle}
+                onFailure={handleLoginFailureGoogle}
+                cookiePolicy="single_host_origin"
+              /> */}
+              {/* <GoogleOAuthProvider clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com"> */}
+              <GoogleLogin
+                clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com"
+                /*  onSuccess={(credentialResponse) => {
+                  console.log(credentialResponse);
+                }} */
+                /* onError={() => {
+                  console.log('Login Failed');
+                }} */
+                onSuccess={handleLoginSuccessGoogle}
+                onError={handleLoginFailureGoogle}
+                cookiePolicy="single_host_origin"
+              />
+              {/* </GoogleOAuthProvider> */}
+            </Grid>
+            {/* <Grid item xs={6}>
+              <FacebookLogin
+                appId="136872808369148"
+                // eslint-disable-next-line react/jsx-boolean-value
+                autoLoad={false}
+                callback={handleLoginFacebook}
+                render={(renderProps) => (
+                  <Button
+                    fullWidth
+                    variant="outlined"
+                    color="primary"
+                    className={classes.submit}
+                    startIcon={
+                      <Avatar
+                        style={{
+                          height: '20px',
+                          width: '20px',
+                        }}
+                        variant="square"
+                        src="https://res.cloudinary.com/dfbongzx0/image/upload/v1621771959/idn7xi1tw5blhrj8zoxk.png"
+                      />
+                    }
+                    onClick={renderProps.onClick}
+                  >
+                    Facebook
+                  </Button>
+                )}
+              />
             </Grid> */}
+          </Grid>
         </form>
       </div>
     </Grid>

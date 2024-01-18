@@ -13,17 +13,21 @@ import './languages';
 import Router from './router';
 import store from './redux/store';
 import html2canvass from 'html2canvas';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 window.Highcharts = Highcharts;
 
 ReactDOM.render(
   <React.StrictMode>
-    <MuiThemeProvider theme={theme}>
-      <Provider store={store()}>
-        <SnackbarProvider>
-          <Router />
-        </SnackbarProvider>
-      </Provider>
-    </MuiThemeProvider>
+    <GoogleOAuthProvider clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com">
+      <MuiThemeProvider theme={theme}>
+        <Provider store={store()}>
+          <SnackbarProvider>
+            <Router />
+          </SnackbarProvider>
+        </Provider>
+      </MuiThemeProvider>
+    </GoogleOAuthProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
