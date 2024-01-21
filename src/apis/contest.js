@@ -1,5 +1,6 @@
+import Cookies from 'js-cookie';
 import api from './api';
-
+const accessToken = Cookies.get('access_token');
 export async function getContests(data) {
   const res = await api({
     method: 'GET',
