@@ -237,8 +237,24 @@ const Question = () => {
         <Box display="flex">
           <Box mr={1} display="flex" alignItems="center">
             <Box mr={1} onClick={handleOpenUploadInfoModal}>
-              <InfoIcon style={{ color: '#ccc', cursor: 'pointer' }} />
+              {/* <InfoIcon style={{ color: '#ccc', cursor: 'pointer' }} /> */}
+              <label htmlFor="contained-button-file">
+                <Tooltip title="Đọc kĩ hướng dẫn trước khi tải lên">
+                  <Button
+                    size="large"
+                    variant="contained"
+                    style={{ color: '#fff', background: '#606060' }}
+                    component="span"
+                    startIcon={
+                      <InfoIcon style={{ color: '#ccc', cursor: 'pointer' }} />
+                    }
+                  >
+                    Hướng dẫn
+                  </Button>
+                </Tooltip>
+              </label>
             </Box>
+
             <input
               accept="*"
               className={classes.input}

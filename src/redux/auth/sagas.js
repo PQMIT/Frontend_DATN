@@ -26,6 +26,7 @@ function* loginSaga(data) {
     if (res.status) {
       const { accessToken, user } = res.result;
       setCookie('accessToken', accessToken, A_WEEK);
+      setCookie('user', JSON.stringify(user), A_WEEK);
       yield put(actions.auth.loginSuccess(accessToken, user));
     } else {
       const { code, message } = res;

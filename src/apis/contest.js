@@ -105,6 +105,15 @@ export async function getResultByContest(id) {
   return res;
 }
 
+export async function getResultDetailByContest(id) {
+  const res = await api({
+    method: 'GET',
+    url: `/contests/${id}/results`,
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  return res;
+}
+
 export async function getResultByUserInContest(id) {
   const res = await api({
     method: 'GET',

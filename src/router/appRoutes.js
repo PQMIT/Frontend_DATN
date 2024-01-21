@@ -7,6 +7,8 @@ import GroupQuestion from '../pages/GroupQuestion';
 import Question from '../pages/Question';
 import ExamTest from '../pages/ExamTest';
 import ExamDetail from '../pages/ExamDetail';
+import DetailExamResult from '../pages/DetailExamResult';
+// import DetailExamResult from '../containers/ExamTest/DetailExamResults';
 import routes from '../constants/route';
 
 export default [
@@ -69,6 +71,13 @@ export default [
   {
     path: routes.EXAM_DETAIL,
     component: ExamDetail,
+    exact: true,
+    restricted: false,
+    isPrivate: true,
+  },
+  {
+    path: routes.EXAM_RESULT_DETAIL,
+    component: DetailExamResult,
     exact: true,
     restricted: false,
     isPrivate: true,

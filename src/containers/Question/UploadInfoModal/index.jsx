@@ -35,18 +35,18 @@ const UploadInfoModal = ({ handleCloseModal, open }) => {
           <Typography>
             Bạn cần tạo file excel theo format dưới đây để hệ thống có thể đọc
             được nội dụng 1 cách chính xác:{' '}
-            <a
+            {/* <a
               href="https://docs.google.com/spreadsheets/d/1f55YQ53WrT2acGgoaIzBXN9ZauLfpiipTqrWnLlGT44/edit?usp=sharing"
               target="_blank"
             >
               link
             </a>
-            <span>--</span>
+            <span>--</span> */}
             <a
               href="https://docs.google.com/spreadsheets/d/1aa0U3ezXc7FIGA-P_k6mIV-bVZV0QeiZoAUDbTdJUOY/edit?usp=drive_link"
               target="_blank"
             >
-              link2
+              link file EXCEL
             </a>
           </Typography>
         </Box>

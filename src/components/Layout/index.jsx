@@ -36,6 +36,7 @@ import routes from '../../constants/route';
 import actions from '../../redux/actions';
 import useStyles from './index.style';
 import { setCookie } from '../../utils/cookie';
+import Cookies from 'js-cookie';
 
 const menus = [
   {
@@ -86,6 +87,8 @@ const Layout = ({ children }) => {
 
   const handleLogout = () => {
     setCookie('accessToken');
+    setCookie('accessToken');
+    Cookies.remove('user');
     dispatch(actions.auth.logout());
   };
   useEffect(() => {
