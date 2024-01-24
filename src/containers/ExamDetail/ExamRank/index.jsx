@@ -20,9 +20,11 @@ import useStyles from './index.style';
 import apis from '../../../apis';
 import LoadingPage from '../../../components/LoadingPage';
 import { renderClockTime } from '../../../utils/date';
+import { useHistory } from 'react-router-dom';
 
 const ExamDetail = ({ examId, role, resultId }) => {
   const classes = useStyles();
+  const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +32,7 @@ const ExamDetail = ({ examId, role, resultId }) => {
   const [pagination, setPagination] = useState({
     count: 100,
     page: 0,
-    rowsPerPage: 5,
+    rowsPerPage: 10,
   });
 
   const handleChangePage = (event, newPage) => {
@@ -138,7 +140,10 @@ const ExamDetail = ({ examId, role, resultId }) => {
   if (isLoading) {
     return <LoadingPage />;
   }
-
+  const redirectToDetailResult = (idContest, idExam) => {
+    // console.log({ idContest, idExam });
+    history.push(`/contest/${idContest}/exam/resultDetail=${idExam}`);
+  };
   return (
     <>
       <Box>
@@ -199,7 +204,13 @@ const ExamDetail = ({ examId, role, resultId }) => {
                     </TableCell>
                     {role && (
                       <TableCell align="center">
-                        <Button variant="outlined" color="primary">
+                        <Button
+                          variant="outlined"
+                          color="primary"
+                          onClick={() =>
+                            redirectToDetailResult(row.contest, row.id)
+                          }
+                        >
                           Chi tiết
                         </Button>
                       </TableCell>

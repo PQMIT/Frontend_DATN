@@ -23,12 +23,12 @@ import apis from '../../apis';
 import LoadingPage from '../../components/LoadingPage';
 import { renderClockTime } from '../../utils/date';
 import useUnsavedChangesWarning from './useUnsavedChangesWarning';
-import ModalImage from '../Image';
 import { isImageUrlCheck } from '../../utils/string';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
+import './ImageZoom.css'; // Import file CSS
+
 let interval = null;
-import DisableDevtool from 'disable-devtool';
 const alphabet = 'A B C D E F G H I K L M N O P Q R S T V X Y Z';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -58,6 +58,11 @@ const ExamTest = () => {
   const [openAlert, setOpenAlert] = useState(false);
   const [openAlertF12, setOpenAlertF12] = useState(false);
   const [isOnline, setIsOnline] = useState(true); // Giả sử kết nối internet là có sẵn ban đầu
+  const [isZoomed, setZoomed] = useState(false);
+
+  const handleZoomToggle = () => {
+    setZoomed(!isZoomed);
+  };
 
   const handleClick = () => {
     setOpenAlert(true);
@@ -283,19 +288,35 @@ const ExamTest = () => {
       </Box>
     );
   }
-  // Xử lí dạng ảnh dạng {{image_url}}}
+  // Xử lí dạng ảnh dạng {{image_url}}} cho câu hỏi
   const textString = questionSelected.data.description;
-  const imageUrlRegex = /\{\{(.*?)\}\}/g;
+  // const imageUrlRegex = /\{\{(.*?)\}\}/g;
+  const imageUrlRegex2 = /\{(.*?)\}/g;
   const replacedString = textString.replace(
-    imageUrlRegex,
+    imageUrlRegex2,
     (match, imageUrl) => {
       if (isImageUrlCheck(imageUrl)) {
-        return `<img src="${imageUrl}" alt="Hình ảnh test" style="width: auto; height: 50px;"  />`;
+        return `<img src="${imageUrl}" alt="Hình ảnh test" style="width: auto; height: 350px;"  />`;
       } else {
         return imageUrl;
       }
     },
   );
+  // Xử lí dạng ảnh dạng {{image_url}}} cho câu trả lời
+  const textString2 = questionSelected.data.answers;
+  textString2.forEach((item, index, array) => {
+    array[index].content = item.content.replace(
+      imageUrlRegex2,
+      (match, imageUrl) => {
+        if (isImageUrlCheck(imageUrl)) {
+          return `<img src="${imageUrl}" alt="Hình ảnh test" style="width: auto; height: 350px;"  />`;
+        } else {
+          return imageUrl;
+        }
+      },
+    );
+  });
+  // console.log(textString2);
 
   // Chống copy paste
   const handleCopyPaste = (e) => {
@@ -317,8 +338,8 @@ const ExamTest = () => {
   };
 
   // // Thực hiện các hành động khác tùy thuộc vào trạng thái của DevTools
-  DisableDevtool(options);
-  console.log(DisableDevtool(options));
+  // DisableDevtool(options);
+  // console.log(DisableDevtool(options));
 
   return (
     <div
@@ -452,9 +473,11 @@ const ExamTest = () => {
                         className={classes.answerRow}
                         onClick={() => handleChangeAnswer(el.answerId)}
                       >
-                        <Typography key={index}>
-                          {alphabet.split(' ')[index]}.{` ${el.content}`}
-                        </Typography>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: el.content,
+                          }}
+                        />
                       </Box>
                     ))}
               </Box>

@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import actions from '../../../redux/actions';
 import useStyles from './index.style';
 import apis from '../../../apis';
-import html2scanvas from 'html2canvas';
+import Cookies from 'js-cookie';
 
 const User = () => {
   // const { t } = useTranslation();
@@ -99,6 +99,21 @@ const User = () => {
         enqueueSnackbar('Upload failed', {
           variant: 'error',
         });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const deleteAccount = async () => {
+    try {
+      const result = await apis.auth.deleteUser();
+      console.log(result);
+      if (result && result.code == 200) {
+        alert('Xóa tài khoản thành công');
+        Cookies.remove('accessToken');
+        window.location.reload();
+      } else {
+        alert('Xóa tài khoản thất bại');
       }
     } catch (error) {
       console.log(error);
@@ -246,9 +261,7 @@ const User = () => {
                 className={classes.buttonDelete}
                 size="large"
                 onClick={() => {
-                  alert(
-                    'Xóa tài khoản nhưng chưa làm. Xóa tài khoản là chắc chắn không thể khôi phục lại được. Bạn chắc chắn chứ ???',
-                  );
+                  deleteAccount(userInfo._id);
                 }} // eslint-disable-line
               >
                 Xóa tài khoản

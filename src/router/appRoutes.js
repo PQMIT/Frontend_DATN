@@ -7,62 +7,64 @@ import GroupQuestion from '../pages/GroupQuestion';
 import Question from '../pages/Question';
 import ExamTest from '../pages/ExamTest';
 import ExamDetail from '../pages/ExamDetail';
+import DetailExamResult from '../pages/DetailExamResult';
+// import DetailExamResult from '../containers/ExamTest/DetailExamResults';
 import routes from '../constants/route';
 
 export default [
   {
     path: routes.LOGIN,
     component: Login,
-    exact: true,
+    // exact: true,
     restricted: true,
     isPrivate: false,
   },
   {
     path: routes.REGISTER,
     component: Register,
-    exact: true,
+    // exact: true,
     restricted: true,
     isPrivate: false,
   },
   {
     path: routes.HOME,
     component: Home,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
   {
     path: routes.USER,
     component: User,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
   {
     path: routes.CONTEST,
     component: Contest,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
   {
     path: routes.GROUP_QUESTIONS,
     component: GroupQuestion,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
   {
     path: routes.QUESTION,
     component: Question,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
   {
     path: routes.EXAM_TEST,
     component: ExamTest,
-    exact: true,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },
@@ -70,6 +72,13 @@ export default [
     path: routes.EXAM_DETAIL,
     component: ExamDetail,
     exact: true,
+    restricted: false,
+    isPrivate: true,
+  },
+  {
+    path: routes.EXAM_RESULT_DETAIL,
+    component: DetailExamResult,
+    // exact: true,
     restricted: false,
     isPrivate: true,
   },

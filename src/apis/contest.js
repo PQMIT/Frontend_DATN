@@ -1,5 +1,6 @@
+import Cookies from 'js-cookie';
 import api from './api';
-
+const accessToken = Cookies.get('access_token');
 export async function getContests(data) {
   const res = await api({
     method: 'GET',
@@ -101,6 +102,15 @@ export async function getResultByContest(id) {
   const res = await api({
     method: 'GET',
     url: `/contests/${id}/results`,
+  });
+  return res;
+}
+
+export async function getResultDetailByContest(id) {
+  const res = await api({
+    method: 'GET',
+    url: `/contests/${id}/results`,
+    headers: { Authorization: `Bearer ${accessToken}` },
   });
   return res;
 }

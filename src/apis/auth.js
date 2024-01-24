@@ -44,3 +44,11 @@ export async function verify(accessToken) {
   });
   return data;
 }
+export async function deleteUser(accessToken) {
+  const data = await api({
+    method: 'DELETE',
+    url: '/auths/deleteUser',
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  return data;
+}

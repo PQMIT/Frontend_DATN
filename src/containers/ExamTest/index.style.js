@@ -16,6 +16,13 @@ export default makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
   },
+  listInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignItems: 'left',
+    justifyContent: 'left',
+  },
   questionSquare: {
     border: '1px solid #eee',
     width: '20px',
