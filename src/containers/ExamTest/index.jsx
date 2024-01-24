@@ -28,7 +28,7 @@ import { isImageUrlCheck } from '../../utils/string';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
 let interval = null;
-
+import DisableDevtool from 'disable-devtool';
 const alphabet = 'A B C D E F G H I K L M N O P Q R S T V X Y Z';
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -143,18 +143,7 @@ const ExamTest = () => {
       history.push(`/contest/${id}/exam/detail`);
     }
   };
-  /* useEffect(() => {
-    const checkInternetConnection = async () => {
-      try {
-        await axios.get('https://www.google.com');
-        setIsOnline(true);
-      } catch (error) {
-        setIsOnline(false);
-      }
-    };
-
-    checkInternetConnection();
-  }, [isOnline]); */
+  // Kiểm tra kết nối internet
   useEffect(() => {
     const handleOnline = () => {
       setIsOnline(true);
@@ -189,6 +178,7 @@ const ExamTest = () => {
       handleFinishExam();
     }
   }, [isMarking]);
+
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       event.preventDefault();
@@ -202,8 +192,7 @@ const ExamTest = () => {
     };
   }, []);
 
-  //
-
+  // Chặn rời khỏi trang
   useEffect(() => {
     const handleBeforeUnload = (e) => {
       const confirmationMessage = 'Bạn có chắc muốn rời khỏi trang này?';
@@ -218,6 +207,8 @@ const ExamTest = () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, []);
+
+  // Chặn phím F12
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (countWarnmingF12 >= 2) {
@@ -252,6 +243,7 @@ const ExamTest = () => {
       data: contest.questions[pos],
     });
   };
+
   //Chặn phím PrintScreen và chụp màn hình
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -291,9 +283,8 @@ const ExamTest = () => {
       </Box>
     );
   }
-  // Xử lí dạng ảnh {{image_url}}}
+  // Xử lí dạng ảnh dạng {{image_url}}}
   const textString = questionSelected.data.description;
-
   const imageUrlRegex = /\{\{(.*?)\}\}/g;
   const replacedString = textString.replace(
     imageUrlRegex,
@@ -324,6 +315,10 @@ const ExamTest = () => {
     setcountWarnming(1);
     setOpenAlert(true);
   };
+
+  // // Thực hiện các hành động khác tùy thuộc vào trạng thái của DevTools
+  DisableDevtool(options);
+  console.log(DisableDevtool(options));
 
   return (
     <div

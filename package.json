@@ -24,6 +24,8 @@
     "clsx": "^1.1.1",
     "cross-env": "^7.0.2",
     "date-fns": "^2.21.3",
+    "devtools-detect": "^4.0.1",
+    "disable-devtool": "^0.3.7",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "highcharts": "^9.1.0",

@@ -45,10 +45,12 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
   }, [isLoggingIn]);
 
   const handleLoginFailureGoogle = (res) => {
+    console.log(res);
     enqueueSnackbar(res, { variant: 'error' });
   };
 
   const handleLoginSuccessGoogle = async (res) => {
+    console.log(res);
     const { tokenId } = res;
     dispatch(actions.auth.login(loginType.LOGIN_GOOGLE, { tokenId }));
   };
@@ -197,23 +199,17 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
                 cookiePolicy="single_host_origin"
               /> */}
               {/* <GoogleOAuthProvider clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com"> */}
-              <GoogleLogin
+              {/* <GoogleLogin
                 clientId="108546913060-gdier6c25mddr862bvqg57b60cil467h.apps.googleusercontent.com"
-                /*  onSuccess={(credentialResponse) => {
-                  console.log(credentialResponse);
-                }} */
-                /* onError={() => {
-                  console.log('Login Failed');
-                }} */
                 onSuccess={handleLoginSuccessGoogle}
                 onError={handleLoginFailureGoogle}
                 cookiePolicy="single_host_origin"
-              />
+              /> */}
               {/* </GoogleOAuthProvider> */}
             </Grid>
-            {/* <Grid item xs={6}>
+            <Grid item xs={6}>
               <FacebookLogin
-                appId="136872808369148"
+                appId="1335197703825731"
                 // eslint-disable-next-line react/jsx-boolean-value
                 autoLoad={false}
                 callback={handleLoginFacebook}
@@ -239,7 +235,7 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
                   </Button>
                 )}
               />
-            </Grid> */}
+            </Grid>
           </Grid>
         </form>
       </div>

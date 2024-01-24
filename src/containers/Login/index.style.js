@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
         ? /* theme.palette.grey[50] */ '#e1ceaf'
         : theme.palette.grey[900],
 
-    backgroundSize: 'contain',
+    backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
   paper: {
