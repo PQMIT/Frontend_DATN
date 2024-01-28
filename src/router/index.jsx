@@ -27,7 +27,6 @@ export default () => {
   if (isFirstTime || verifying) {
     return <CircularProgress />;
   }
-
   return (
     <BrowserRouter>
       <Switch>

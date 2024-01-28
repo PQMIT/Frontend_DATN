@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import routes from '../constants/route';
 
 export default function PublicRoute({ Component, restricted, ...rest }) {
+  console.log('PublicRoutesdfasdfasdf', rest);
   const accessToken = useSelector((state) => state.auth.accessToken);
   return (
     <Route
