@@ -1,7 +1,7 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
-  "homepage": "/",
+  "homepage": "https://multichoice.site",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-scripts build",

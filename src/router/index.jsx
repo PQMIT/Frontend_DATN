@@ -29,7 +29,7 @@ export default () => {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/" historyApiFallback={true}>
       <Switch>
         {appRoutes.map(
           ({
