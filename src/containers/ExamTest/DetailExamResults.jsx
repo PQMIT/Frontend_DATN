@@ -101,13 +101,13 @@ const DetailExamResult = () => {
 
   return (
     <div>
-      <Button
+      {/* <Button
         variant="contained"
         color="primary"
         href={`/contest/${idContest}/exam/detail`}
       >
         Quay Lại
-      </Button>
+      </Button> */}
       <p></p>
       <Box>
         <Grid container spacing={1}>

@@ -151,13 +151,19 @@ const PrepareExam = ({ examId }) => {
               <strong class="">Nội quy</strong>
             </p>
             <span>
-              - Không nhờ người khác thi hộ. <br />- Không sao chép câu trả lời
-              từ tài liệu trên internet.
               <p>
                 <strong class="text-danger" style={{ color: '#dc3545' }}>
-                  - Không thoát khỏi màn hình làm bài thi. Nếu bạn thoát khỏi
-                  màn hình bài thi, hệ thống tự động nộp bài và ghi nhận kết quả
-                  trước đó
+                  - Không nhờ người khác thi hộ. <br />- Không sao chép câu trả
+                  lời từ tài liệu trên internet. <br />
+                  - Không sử dụng thiết bị khác . <br /> - Không dùng tab khác
+                  để hỗ trợ bài thi . <br /> - Không thoát khỏi màn hình trong
+                  quá trình làm bài thi.
+                  <br />
+                  - Không reload lại trang web hay tắt website khi đang làm bài
+                  thi.
+                  <br />
+                  -Nếu vi phạm các điều trên, hệ thống tự động nộp bài và ghi
+                  nhận kết quả trước đó
                 </strong>
               </p>
             </span>

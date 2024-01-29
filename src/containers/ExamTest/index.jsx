@@ -27,6 +27,7 @@ import { isImageUrlCheck } from '../../utils/string';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
 import './ImageZoom.css'; // Import file CSS
+import { set } from 'date-fns';
 
 let interval = null;
 const alphabet = 'A B C D E F G H I K L M N O P Q R S T V X Y Z';
@@ -53,10 +54,12 @@ const ExamTest = () => {
   const [timeDoExam, setTimeDoExam] = useState(0);
   const [countWarnming, setcountWarnming] = useState(0);
   const [countWarnmingF12, setcountWarnmingF12] = useState(0);
+  const [countWarnmingTab, setcountWarnmingTab] = useState(0);
   const [isMarking, setIsMarking] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [openAlert, setOpenAlert] = useState(false);
   const [openAlertF12, setOpenAlertF12] = useState(false);
+  const [openAlertTab, setOpenAlertTab] = useState(false);
   const [isOnline, setIsOnline] = useState(true); // Giả sử kết nối internet là có sẵn ban đầu
   const [isZoomed, setZoomed] = useState(false);
 
@@ -80,6 +83,12 @@ const ExamTest = () => {
       return;
     }
     setOpenAlertF12(false);
+  };
+  const handleCloseTab = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenAlertTab(false);
   };
 
   const handleChangeAnswer = (value) => {
@@ -119,6 +128,7 @@ const ExamTest = () => {
   const handleStartExam = (examTime) => {
     const startTime = new Date();
     interval = setInterval(() => {
+      //document.addEventListener('visibilitychange', handleVisibilityChange);
       const now = new Date();
       const timeDo = Math.floor((now - startTime) / 1000);
       if (timeDo < examTime) {
@@ -184,25 +194,41 @@ const ExamTest = () => {
     }
   }, [isMarking]);
 
+  // Chặn mở tab khác
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      event.preventDefault();
-      event.returnValue = ''; // Một số trình duyệt yêu cầu một chuỗi trống để hiển thị thông báo mặc định
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        console.log('Page is visible');
+        // Thực hiện các hành động khi trang được hiển thị
+      } else {
+        console.log('Page is hidden');
+        setOpenAlertTab(true);
+        // Thực hiện các hành động khi trang bị ẩn
+        setcountWarnmingTab(countWarnmingTab + 1);
+        if (countWarnmingTab + 1 >= 2) {
+          alert('Bạn đã cố tình vị phạm lần 2, bài thi sẽ bị hủy');
+          setIsMarking(true);
+          return;
+        }
+      }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    // Đăng ký sự kiện visibilitychange khi component được mount
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
+    // Hủy đăng ký sự kiện khi component bị unmount
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, []);
+  }, [countWarnmingTab]); // [] đảm bảo rằng useEffect chỉ được gọi khi component được mount và unmount
 
   // Chặn rời khỏi trang
   useEffect(() => {
-    const handleBeforeUnload = (e) => {
+    const handleBeforeUnload = (event) => {
       const confirmationMessage = 'Bạn có chắc muốn rời khỏi trang này?';
       console.log(confirmationMessage);
-      e.returnValue = confirmationMessage; // Standard for most browsers
+      event.returnValue = confirmationMessage; // Standard for most browsers
+      setIsMarking(true);
       return confirmationMessage; // For some older browsers
     };
 
@@ -211,7 +237,7 @@ const ExamTest = () => {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, []);
+  }, [isMarking]);
 
   // Chặn phím F12
   useEffect(() => {
@@ -337,9 +363,19 @@ const ExamTest = () => {
     setOpenAlert(true);
   };
 
-  // // Thực hiện các hành động khác tùy thuộc vào trạng thái của DevTools
-  // DisableDevtool(options);
-  // console.log(DisableDevtool(options));
+  // Nhận diện người dùng đã thoát khỏi trang
+  // const handleVisibilityChange = () => {
+  //   if (document.visibilityState === 'visible') {
+  //     console.log('Page is visible');
+  //     // Thực hiện các hành động khi trang được hiển thị
+  //   } else {
+  //     console.log('Page is hidden');
+  //     // Thực hiện các hành động khi trang bị ẩn
+  //   }
+  // };
+
+  // // Đăng ký sự kiện visibilitychange khi component được mount
+  // document.addEventListener('visibilitychange', handleVisibilityChange);
 
   return (
     <div
@@ -373,6 +409,17 @@ const ExamTest = () => {
       >
         <Alert onClose={handleCloseF12} severity="warning">
           Cảnh bảo {countWarnmingF12} !!! Còn cố ý sử dụng F12 thì bài thi sẽ bị
+          hủy
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={openAlertTab}
+        autoHideDuration={3000}
+        onClose={handleCloseTab}
+      >
+        <Alert onClose={handleCloseTab} severity="warning">
+          Cảnh bảo {countWarnmingTab} !!! Còn sử dụng tab khác thì bài thi sẽ bị
           hủy
         </Alert>
       </Snackbar>

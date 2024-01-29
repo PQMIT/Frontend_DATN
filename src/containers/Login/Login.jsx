@@ -65,14 +65,14 @@ const Login2 = ({ isLogin, handleLoginOrRegister }) => {
   const validateLogin = () => {
     let countError = 0;
     if (email.length === 0) {
-      setEmailError('Email is required');
+      setEmailError('Email là bắt buộc');
       countError++;
     } else if (!validateEmail(email)) {
-      setEmailError('Email invalid');
+      setEmailError('Email không hợp lệ');
       countError++;
     }
     if (password.length === 0) {
-      setPasswordError('Password is required');
+      setPasswordError('Password là bắt buộc');
       countError++;
     }
     if (countError > 0) return false;

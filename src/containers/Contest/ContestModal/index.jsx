@@ -30,7 +30,7 @@ import {
 } from '@material-ui/pickers';
 import useStyles from './index.style';
 import apis from '../../../apis';
-import { setDate, setTime } from '../../../utils/date';
+import { renderDate, setDate, setTime } from '../../../utils/date';
 
 const ContestModal = ({
   handleCloseModal,
@@ -42,22 +42,35 @@ const ContestModal = ({
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [contest, setContest] = useState();
-
+  // console.log(contest);
   const handleDateChange = (type) => (date) => {
     let startTime = contest && contest.startTime;
     let endTime = contest && contest.endTime;
     switch (type) {
       case 'startDate':
-        startTime = setDate(startTime || date, date);
+        // startTime = setDate(startTime || date, date);
+        let dateString = date.toISOString(); // Chuyển đối tượng Date thành chuỗi dạng ISO
+        startTime = dateString;
+        // console.log(dateString);
+        // startTime = date;
         break;
       case 'startTime':
-        startTime = setTime(startTime || date, date);
+        // startTime = setTime(startTime || date, date);
+        let dateString3 = date.toISOString(); // Chuyển đối tượng Date thành chuỗi dạng ISO
+        startTime = dateString3;
+        // console.log(dateString3);
         break;
       case 'endDate':
-        endTime = setDate(endTime || date, date);
+        // endTime = setDate(endTime || date, date);
+        let dateString2 = date.toISOString(); // Chuyển đối tượng Date thành chuỗi dạng ISO
+        endTime = dateString2;
+        // console.log(dateString2);
         break;
       case 'endTime':
-        endTime = setTime(endTime || date, date);
+        // endTime = setTime(endTime || date, date);
+        let dateString4 = date.toISOString(); // Chuyển đối tượng Date thành chuỗi dạng ISO
+        endTime = dateString4;
+        // console.log(dateString4);
         break;
       default:
     }
@@ -68,7 +81,7 @@ const ContestModal = ({
       endTime,
     });
   };
-
+  // console.log(contest?.startTime);
   useEffect(() => {
     setContest(itemSelect);
   }, [itemSelect, open]);
