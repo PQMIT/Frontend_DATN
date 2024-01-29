@@ -46,7 +46,7 @@ const Contest = () => {
   const [contestSelect, setContestSelect] = useState(null);
   const [groupQuestions, setGroupQuestions] = useState([]);
   const [pagination, setPagination] = useState({
-    rowsPerPage: 10,
+    rowsPerPage: 100,
     page: 0,
     count: 100,
   });
