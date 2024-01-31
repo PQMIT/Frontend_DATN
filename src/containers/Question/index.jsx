@@ -176,7 +176,7 @@ const Question = () => {
 
   const handleImportExcel = (e) => {
     e.preventDefault();
-    enqueueSnackbar('Data is being processed, which may take a few minutes ', {
+    enqueueSnackbar('Dữ liệu đang được xử lí, xin hãy chờ ít phút ', {
       variant: 'warning',
     });
     const file = e.target.files[0];
@@ -212,12 +212,12 @@ const Question = () => {
         );
         fetchQuestions({ offset: 0 });
         setKeySearch('');
-        enqueueSnackbar('Import data success', {
+        enqueueSnackbar('Nhập dữ liệu thành công', {
           variant: 'success',
         });
       });
     } catch (error) {
-      enqueueSnackbar('Import data failed', {
+      enqueueSnackbar('Nhập dữ liệu thất bại', {
         variant: 'error',
       });
     }

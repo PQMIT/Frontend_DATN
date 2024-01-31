@@ -6,6 +6,7 @@ import { setCookie } from '../../utils/cookie';
 import loginType from '../../constants/loginType';
 
 function* loginSaga(data) {
+  console.log(data);
   try {
     const A_WEEK = 7 * 24 * 60 * 60 * 1000;
     let res = null;
